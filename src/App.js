@@ -28,16 +28,6 @@ function App() {
         break;
     }
   };
-  
-
-  useEffect(() => {
-    getLocal();
-  }, []);
-
-  useEffect(() => {
-    filterHandler();
-    saveLocal();
-  }, [todos, status]);
 
   const saveLocal = () => {
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -53,6 +43,16 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    getLocal();
+  }, []);
+
+  useEffect(() => {
+    filterHandler();
+    saveLocal();
+  }, [todos, status]);
+
+
   
 
 
@@ -60,7 +60,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Doodoo List</h1>
+        <h1>Toodoo List</h1>
       </header>
       <Form todos={todos} setTodos={setTodos} setInputText={setInputText} inputText={inputText} setStatus={setStatus} />
       <List setTodos={setTodos} todos={todos} filteredTodos={filteredTodos}/>
